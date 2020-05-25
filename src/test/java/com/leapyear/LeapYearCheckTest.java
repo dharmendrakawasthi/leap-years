@@ -8,19 +8,22 @@ import org.junit.jupiter.api.Test;
 class LeapYearCheckTest {
 
 	@Test
-	void testSetCalenderType() {
+	void calenderTypeTest() {
 		
+		LeapYearCheck check = new LeapYearCheck();
 		// Check if year is of Gregorian Calender
-		YearDetails yearDetails = new YearDetails(2000);
-		LeapYearCheck.setCalendarType(yearDetails);
+		YearDetails yearDetails = new YearDetails();
+		yearDetails.setYear(2000);
+		check.setCalendarType(yearDetails);
 		
 		Assertions.assertNotNull(yearDetails);
 		Assertions.assertEquals(yearDetails.getCalenderType(), "GR");
 		Assertions.assertTrue(yearDetails.getYear() > 0);
 		
 		// Check if year is of Julian Calender
-		YearDetails yearDetails2 = new YearDetails(1581);
-		LeapYearCheck.setCalendarType(yearDetails2);
+		YearDetails yearDetails2 = new YearDetails();
+		yearDetails2.setYear(1581);
+		check.setCalendarType(yearDetails2);
 		
 		Assertions.assertNotNull(yearDetails2);
 		Assertions.assertEquals(yearDetails2.getCalenderType(), "JU");
@@ -29,9 +32,7 @@ class LeapYearCheckTest {
 		// Check if object passed have year as null
 		YearDetails yearDetails3 = new YearDetails();
 	    Assertions.assertThrows(NullPointerException.class,()->{
-	    	LeapYearCheck.setCalendarType(yearDetails3);
-	    });
-	    
+	    	check.setCalendarType(yearDetails3);
+	    });   
 	}
-
 }

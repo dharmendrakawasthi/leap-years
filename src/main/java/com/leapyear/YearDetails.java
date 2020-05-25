@@ -8,10 +8,6 @@ public class YearDetails {
 	
 	public YearDetails() {}
 
-	public YearDetails(Integer year) {
-		this.year = year;
-	}
-
 	public Integer getYear() {
 		return year;
 	}
