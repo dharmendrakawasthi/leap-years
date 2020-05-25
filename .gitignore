@@ -1,0 +1,7 @@
+## Dirs to ignore ##
+target/
+.settings
+
+## Files to ignore ##
+.classpath
+.project
