@@ -6,8 +6,7 @@ This project aims to showcase the Test Driven Development (TDD), using JUnit 5.
 # Functionality 
 leap-year is ment to determine if year is a leap year, so that user can plan the task for one more day for febraury.
 
-#Test Cases 
-
+# Test Cases 
 1) Check if year is of Julian Calender
 2) Check if year is of Gregorian Calender
 3) Check if object passed have year as null
@@ -17,3 +16,6 @@ leap-year is ment to determine if year is a leap year, so that user can plan the
 7) Check if year belongs to Gregorian Calendar and checking for Julian Calendar
 8) Check if year is of Julian Calendar and it is not a leap year
 9) Check if year is of Gregorian Calendar and it is not a leap year
+
+# How to run project
+>mvn clean package
