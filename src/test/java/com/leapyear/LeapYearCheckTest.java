@@ -94,5 +94,21 @@ class LeapYearCheckTest {
 		});
 	}
 
-	
+	@Test
+	void negativeCaseTest() {
+
+		// Check if year is of Julian Calendar and it is not a leap year
+		this.year.setYear(1581);
+		this.check.setCalendarType(this.year);
+		this.check.setisLeapYear(this.year);
+		Assertions.assertNotNull(this.year);
+		Assertions.assertEquals(this.year.getIsLeapYear(), false);
+
+		// Check if year is of Gregorian Calendar and it is not a leap year
+		this.year.setYear(2001);
+		this.check.setCalendarType(this.year);
+		this.check.setisLeapYear(this.year);
+		Assertions.assertNotNull(this.year);
+		Assertions.assertEquals(this.year.getIsLeapYear(), false);
+	}
 }
