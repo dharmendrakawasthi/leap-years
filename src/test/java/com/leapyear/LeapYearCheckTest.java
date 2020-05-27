@@ -56,5 +56,43 @@ class LeapYearCheckTest {
 		});
 	}
 
+	@Test
+	void isaLeapYearTest() {
+
+		// Check if year is of Julian Calender and it is a leap year
+		this.year.setYear(1580);
+		this.check.setCalendarType(this.year);
+		this.check.setisLeapYear(this.year);
+		Assertions.assertNotNull(this.year);
+		Assertions.assertEquals(this.year.getIsLeapYear(), true);
+
+		// Check if year is of Gregorian Calendar and it is a leap year
+		this.year.setYear(2000);
+		this.check.setCalendarType(this.year);
+		this.check.setisLeapYear(this.year);
+		Assertions.assertNotNull(this.year);
+		Assertions.assertEquals(this.year.getIsLeapYear(), true);
+	}
+
+	@Test
+	void checkRuntimeExceptionTest() {
+
+		YearDetails yearDetails = new YearDetails();
+
+		// Check if year belongs to Gregorian Calendar and checking for Julian Calendar
+		yearDetails.setYear(2000);
+		yearDetails.setCalenderType("JU");
+		Assertions.assertThrows(InvaliedValueException.class, () -> {
+			this.check.setisLeapYear(yearDetails);
+		});
+
+		// Check if year belongs to Gregorian Calendar and checking for Julian Calendar
+		yearDetails.setYear(1580);
+		yearDetails.setCalenderType("GR");
+		Assertions.assertThrows(InvaliedValueException.class, () -> {
+			this.check.setisLeapYear(yearDetails);
+		});
+	}
+
 	
 }

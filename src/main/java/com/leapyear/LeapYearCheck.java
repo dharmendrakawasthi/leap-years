@@ -25,31 +25,28 @@ public class LeapYearCheck {
 	 * Method takes YearDetails POJO with year and calendar type defines
 	 */
 	public YearDetails setisLeapYear(YearDetails year) {
-		
-		if(year.getCalenderType() == "JU" && year.getYear() > 1582) {
-			return null;
+
+		if ((year.getCalenderType() == "JU" && year.getYear() > 1582)
+				|| (year.getCalenderType() == "GR" && year.getYear() < 1582)) {
+			throw new InvaliedValueException("Invalied Value");
 		}
-		
-		if(year.getCalenderType() == "GR" && year.getYear() < 1582) {
-			return null;
-		}
-		
+
 		if (year.getYear() % 4 != 0) {
 			year.setIsLeapYear(false);
-		} 
-		
-		if(year.getYear() % 400 == 0) {
+		}
+
+		if (year.getYear() % 400 == 0) {
 			year.setIsLeapYear(true);
 		}
-		
-		if(year.getYear() % 4 == 0 && year.getYear() % 100 != 0) {
+
+		if (year.getYear() % 4 == 0 && year.getYear() % 100 != 0) {
 			year.setIsLeapYear(true);
 		}
-	
-		if(year.getYear() % 100 == 0 && year.getYear() % 400 != 0) {
+
+		if (year.getYear() % 100 == 0 && year.getYear() % 400 != 0) {
 			year.setIsLeapYear(false);
 		}
-	
+
 		return year;
 	}
 }
