@@ -8,10 +8,6 @@ public class LeapYearCheck {
 	 */
 	public YearDetails setCalendarType(YearDetails year) {
 
-		if (year.getYear() == 0 || year.getYear() == null) {
-			return null;
-		}
-
 		if (year.getYear() <= 1582) {
 			year.setCalenderType("JU");
 		} else if (year.getYear() > 1582) {

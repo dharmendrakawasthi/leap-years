@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LeapYearCheck.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">leap-years</a> &gt; <a href="index.source.html" class="el_package">com.leapyear</a> &gt; <span class="el_source">LeapYearCheck.java</span></div><h1>LeapYearCheck.java</h1><pre class="source lang-java linenums">package com.leapyear;
+
+<span class="fc" id="L3">public class LeapYearCheck {</span>
+
+	/*
+	 * The method setCalenderType(YearDetails year) is to set the calendar type for
+	 * year It takes YearDetails POJO object with year defined already
+	 */
+	public YearDetails setCalendarType(YearDetails year) {
+
+<span class="fc bfc" id="L11" title="All 2 branches covered.">		if (year.getYear() &lt;= 1582) {</span>
+<span class="fc" id="L12">			year.setCalenderType(&quot;JU&quot;);</span>
+<span class="pc bpc" id="L13" title="1 of 2 branches missed.">		} else if (year.getYear() &gt; 1582) {</span>
+<span class="fc" id="L14">			year.setCalenderType(&quot;GR&quot;);</span>
+		}
+<span class="fc" id="L16">		return year;</span>
+	}
+
+	/*
+	 * The method setisLeapYear(YearDetails year) is to set the leap year check
+	 * Method takes YearDetails POJO with year and calendar type defines
+	 */
+	public YearDetails setisLeapYear(YearDetails year) {
+
+<span class="fc bfc" id="L25" title="All 4 branches covered.">		if ((year.getCalenderType() == &quot;JU&quot; &amp;&amp; year.getYear() &gt; 1582)</span>
+<span class="fc bfc" id="L26" title="All 4 branches covered.">				|| (year.getCalenderType() == &quot;GR&quot; &amp;&amp; year.getYear() &lt; 1582)) {</span>
+<span class="fc" id="L27">			throw new InvaliedValueException(&quot;Invalied Value&quot;);</span>
+		}
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">		if (year.getYear() % 4 != 0) {</span>
+<span class="fc" id="L31">			year.setIsLeapYear(false);</span>
+		}
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">		if (year.getYear() % 400 == 0) {</span>
+<span class="fc" id="L35">			year.setIsLeapYear(true);</span>
+		}
+
+<span class="fc bfc" id="L38" title="All 4 branches covered.">		if (year.getYear() % 4 == 0 &amp;&amp; year.getYear() % 100 != 0) {</span>
+<span class="fc" id="L39">			year.setIsLeapYear(true);</span>
+		}
+
+<span class="fc bfc" id="L42" title="All 4 branches covered.">		if (year.getYear() % 100 == 0 &amp;&amp; year.getYear() % 400 != 0) {</span>
+<span class="fc" id="L43">			year.setIsLeapYear(false);</span>
+		}
+
+<span class="fc" id="L46">		return year;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

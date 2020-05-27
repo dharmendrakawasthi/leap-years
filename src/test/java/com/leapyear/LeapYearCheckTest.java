@@ -110,5 +110,12 @@ class LeapYearCheckTest {
 		this.check.setisLeapYear(this.year);
 		Assertions.assertNotNull(this.year);
 		Assertions.assertEquals(this.year.getIsLeapYear(), false);
+
+		// Check if year is of Gregorian Calendar and it is a leap year
+		this.year.setYear(100);
+		this.check.setCalendarType(this.year);
+		this.check.setisLeapYear(this.year);
+		Assertions.assertNotNull(this.year);
+		Assertions.assertEquals(this.year.getIsLeapYear(), false);
 	}
 }
